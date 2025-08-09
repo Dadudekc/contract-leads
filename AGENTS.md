@@ -5,4 +5,5 @@
 - Target an average of roughly 300 lines per file across the codebase.
 - Adopt a test-driven development (TDD) approach by writing or updating tests before implementing features or fixes.
 - Run `pytest` and execute `python harvester.py` when modifying code to ensure functionality.
+- Do not commit placeholders, stubs, or unfinished logic; all code must be fully implemented.
 - Avoid committing generated files (e.g., logs, `__pycache__`).
