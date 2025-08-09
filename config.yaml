@@ -9,6 +9,10 @@ budget:
 scoring:
   keyword_weight: 1.0
   recency_weight: 0.5
+  urgency_weight: 2.0
+  budget_weight: 1.5
+  decision_maker_weight: 1.0
+  dm_friendliness_weight: 1.0
 pricing:
   base: 1000
 telegram:
