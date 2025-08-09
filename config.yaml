@@ -1,0 +1,19 @@
+keywords:
+  - python
+  - scraping
+cities:
+  - remote
+budget:
+  min: 0
+  max: 10000
+scoring:
+  keyword_weight: 1.0
+  recency_weight: 0.5
+pricing:
+  base: 1000
+telegram:
+  enabled: false
+  bot_token: ""
+  chat_id: ""
+alerts:
+  min_score: 10
