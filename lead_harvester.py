@@ -15,6 +15,7 @@ from scoring import LeadScorer
 from outputs import export_all
 from alerts import AlertSystem
 from outreach import OutreachGenerator
+from extra_sources.loader import load_extra_scrapers
 
 
 def main() -> None:
@@ -25,6 +26,7 @@ def main() -> None:
         RedditScraper(),
         WeWorkRemotelyScraper(),
     ]
+    scrapers.extend(load_extra_scrapers())
     leads = []
     for scraper in scrapers:
         leads.extend(scraper.fetch())
