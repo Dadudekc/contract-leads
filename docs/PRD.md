@@ -1,0 +1,89 @@
+# Lead Harvester Pro — PRD v1.0
+
+## 1. Objective
+
+Build an autonomous daily lead-harvesting system that scans the open web for high-intent micro-gigs ($100–$500 range), ranks them for quality, and generates ready-to-send outreach messages so the operator can close $100–$200/day in coding work.
+
+## 2. Target Users
+- **Primary:** Freelance developers & automation specialists seeking fast-turnaround jobs.
+- **Secondary:** Small agencies & solopreneurs offering tech services.
+- **Tertiary:** Lead generation resellers.
+
+## 3. Problem Statement
+
+Finding micro-gigs is time-consuming and competitive. Platforms like Upwork/Fiverr have:
+- Too much competition.
+- Low-quality leads.
+- High bidding overhead.
+
+We need direct-source leads from multiple channels, scored for quality, and paired with instant outreach scripts to maximize same-day closes.
+
+## 4. Core Features
+1. **Multi-Source Scraping**
+   - Craigslist (multi-city, "Computer Gigs" & "Creative Gigs")
+   - Reddit (targeted subs like r/slavelabour, r/forhire)
+   - RemoteOK & WeWorkRemotely (contract/freelance)
+   - Extensible `extra_sources/` folder for custom scrapers (LinkedIn, Twitter, niche boards)
+2. **Lead Scoring Engine**
+   - Keyword match (automation, bot, scraper, API, Sheets, etc.)
+   - Urgency detection (ASAP, today, urgent)
+   - Budget parsing ($ range in post)
+   - Decision-maker language (my business, my store, I need…)
+   - DM-friendliness (short, clear requests)
+3. **Output & Ranking**
+   - CSV, Markdown, JSON with score, tags, and DM suggestions.
+   - Sorted by score + recency.
+4. **Outreach Generator**
+   - Auto-price suggestion based on budget.
+   - Ready-to-send DM templates with variable placeholders.
+   - Multiple tone options (fast pitch vs consultative).
+5. **Alerts**
+   - Optional Telegram bot for instant high-score lead notifications.
+   - Configurable alert thresholds (e.g., only score ≥ 12).
+
+## 5. Success Criteria
+- Minimum 3–5 high-quality leads/day matching $100–$500 budget.
+- At least 1 closed job per 2 days within first 2 weeks.
+- Outreach generation reduces time-to-DM to under 2 minutes per lead.
+
+## 6. Non-Goals
+- No Upwork/Fiverr scraping.
+- No heavy NLP/AI classification in v1 (rules-based scoring only).
+- No payment gateway — sales handled manually.
+
+## 7. Technical Requirements
+- Language: Python 3.10+
+- Libraries: requests, BeautifulSoup4, PyYAML, python-dateutil, lxml, sqlite3 (std lib)
+- Config: `config.yaml` for keywords, cities, budget range, scoring weights, Telegram settings
+- Storage: SQLite DB for deduplication; CSV/Markdown for exports
+- Runtime: Local machine, VPS, or GitHub Actions
+- Extensibility: Pluggable extra source scrapers via JSON drops
+
+## 8. User Flow
+1. System runs on schedule (hourly or daily).
+2. Fetches & parses data from all sources.
+3. Filters & scores leads → tags them.
+4. Generates DM scripts with price.
+5. Saves ranked list (CSV/MD/JSON).
+6. Sends Telegram alerts for top-scoring leads.
+7. User sends DMs → closes deals.
+
+## 9. KPIs
+- Lead quality score average ≥ 10.0
+- Response rate ≥ 30%
+- Close rate ≥ 10%
+- Daily potential revenue ≥ $300 from harvested leads
+
+## 10. Roadmap
+
+### Phase 1 (v1.0 – MVP)
+- Implement sources, scoring, outreach generation, alerts.
+- Manual DM sending.
+
+### Phase 2 (v1.5)
+- Add LinkedIn/Twitter scrapers.
+- Automated lead-response tracker.
+
+### Phase 3 (v2.0)
+- Integrate AI NLP to rewrite DMs per lead context.
+- Auto-send via API integrations (where allowed).
